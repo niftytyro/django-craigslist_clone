@@ -1,0 +1,20 @@
+.card {
+    height: 50%;
+    overflow: hidden;
+}
+
+.card-content{
+    height: 33%;
+    overflow-y: scroll;
+}
+.card-content::-webkit-scrollbar {
+    display: none;
+}
+
+.card-image {
+    height: 50%;
+    overflow: hidden;
+}
+#post-image {
+    height: 100%;
+}
