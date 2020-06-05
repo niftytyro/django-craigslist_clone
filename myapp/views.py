@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from . import models
 
 import requests
@@ -15,6 +15,8 @@ def home(request):
 
 def new_search(request):
     search = request.POST.get('search')
+    if(search == None):
+        return redirect('/')
     models.Search.objects.create(search=search)
     try:
         url = CRAIGSLIST_BASE_URL.format(quote_plus(search))
