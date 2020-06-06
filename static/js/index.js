@@ -1,32 +1,14 @@
-var $el = $(".card-content");
-var elHeight = $el.outerHeight();
-var elWidth = $el.outerWidth();
-
-var $wrapper = $(".card");
-
-$wrapper.resizable({
-  resize: doResize
+$(document).ready( function () {
+    if(screen.width<600) {
+        // row = document.getElementByClass("row");
+        els = $(".col.s4");
+        els.each(function () {
+            $(this).attr("class", "col s12");
+            // new_html = "<div class='row'><div class=" + el.innerHTML
+            // new_html = "<div class='col s12'>" + el.innerHTML + "</div>";
+        });
+        row_el = $(".row");
+        html = row_el.innerHTML;
+        row_el.html(html);
+    }
 });
-
-function doResize(event, ui) {
-
-  var scale, origin;
-
-  scale = Math.min(
-    ui.size.width / elWidth,
-    ui.size.height / elHeight
-  );
-
-  $el.css({
-    transform: "scale(" + scale + ")"
-  });
-
-}
-
-var starterData = {
-  size: {
-    width: $wrapper.width(),
-    height: $wrapper.height()
-  }
-}
-doResize(null, starterData);
